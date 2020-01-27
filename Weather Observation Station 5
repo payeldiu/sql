@@ -1,0 +1,20 @@
+https://www.hackerrank.com/challenges/weather-observation-station-5/problem
+
+Problem: Weather Observation Station 5
+
+###Oracle####
+
+select min(city),len from (
+select length(city)len,city from station
+group by city
+)m
+where len=(select min(length(city)) from station)
+group by len;
+
+select min(city),len from (
+select length(city)len,city from station
+group by city
+)m
+where len=(select max(length(city)) from station)
+group by len
+order by 2,1;
